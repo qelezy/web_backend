@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --bg-color: #f5f5f5;
+    --form-bg-color: #ffffff;
+    --shadow-color: #00000025;
+    --border-color: #cccccc;
+    --label-color: #333333;
+    --btn-bg-color: #0089df;
+    --btn-hover-bg-color: #009dff;
+    --btn-fg-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--bg-color);
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2.5rem 3rem;
+    margin-top: 5rem;
+    border-radius: 1rem;
+    background-color: var(--form-bg-color);
+    box-shadow: 0 2px 3px var(--shadow-color);
+    height: fit-content;
+
+    & h2 {
+        font-size: 1.75rem;
+    }
+
+    & .form-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    color: var(--label-color);
+}
+
+input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+}
+
+textarea {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    height: 100px;
+    resize: none;
+}
+
+button[type="submit"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-fg-color);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--btn-hover-bg-color);
+    }
+}
+
+p {
+    font-size: 1.5rem;
+}
