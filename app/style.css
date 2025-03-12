@@ -48,10 +48,19 @@ form {
     }
 }
 
-label {
+.input-container {
     display: flex;
     flex-direction: column;
+}
+
+label {
     color: var(--label-color);
+
+    & span {
+        margin-left: 2px;
+        color: var(--btn-bg-color);
+        user-select: none;
+    }
 }
 
 input {
@@ -68,7 +77,7 @@ textarea {
     resize: none;
 }
 
-button[type="submit"] {
+#add-btn {
     padding: 0.5rem;
     border: none;
     border-radius: 0.5rem;
