@@ -1,0 +1,62 @@
+:root {
+    --bg-color: #101013;
+    --form-bg-color: #1e2026;
+    --input-color: #393c45;
+    --sub-color: #ee692c;
+    --btn-bg-hover-color: #c75b29;
+    --form-text-color: #dedede;
+    --text-color: #ffffff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--bg-color);
+    height: 100vh;
+}
+
+.control-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+    gap: 3rem;
+}
+
+.control-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--text-color);
+
+    & h3 {
+        text-align: center;
+    }
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    & button {
+        font-size: 1rem;
+        padding: 1rem;
+        border: 2px solid var(--sub-color);
+        border-radius: 0.5rem;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        min-width: 200px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--sub-color);
+        }
+
+        &:active {
+            border-color: var(--btn-bg-hover-color);
+            background-color: var(--btn-bg-hover-color);
+        }
+    }  
+}

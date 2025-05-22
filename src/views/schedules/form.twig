@@ -20,14 +20,10 @@
       <label for="description-input">Описание</label>
       <textarea id="description-input" name="description"></textarea>
     </div>
-    <div class="input-container">
-      <label for="file-input" class="file-upload">Загрузка из CSV-файла</label>
-      <input type="file" id="file-input" name="file" accept=".csv">
-    </div>
   </div>
   <button type="submit" class="add-btn">Добавить</button>
 </form>
 {% endblock %}
 {% block script %}
-<script type="module" src="/js/training_session_form.js"></script>
+<script type="module" src="/js/schedule_form.js"></script>
 {% endblock %}

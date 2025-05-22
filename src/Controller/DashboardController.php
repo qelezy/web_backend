@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use Twig\Environment;
 
-class MainController {
+class DashboardController {
     private Environment $twig;
 
     public function __construct(Environment $twig) {
@@ -11,7 +11,7 @@ class MainController {
     }
 
     public function index(): void {
-        echo $this->twig->render("main.twig");
+        echo $this->twig->render("/dashboard.twig");
     }
 }
 ?>

@@ -1,9 +1,9 @@
 {% extends "base.twig" %}
-{% block title %}Добавление тренера{% endblock %}
-{% block style %}<link rel="stylesheet" href="../css/form.css">{% endblock %}
+{% block title %}Регистрация{% endblock %}
+{% block style %}<link rel="stylesheet" href="css/form.css">{% endblock %}
 {% block content %}
 <form id="form">
-  <h2>Добавление тренера</h2>
+  <h2>Регистрация</h2>
   <div class="form-body">
     <div class="username-content">
       <div class="input-container">
@@ -21,17 +21,24 @@
     </div>
     <div class="input-container">
       <label for="phone-input">Номер телефона<span>*</span></label>
-      <input type="text" placeholder="+7(XXX)XXX-XX-XX" id="phone-input" name="phone">
+      <input type="text" id="phone-input" placeholder="+7(XXX)XXX-XX-XX" name="phone" required></input>
     </div>
     <div class="input-container">
-      <label for="specialization-input">Специализация<span>*</span></label>
-      <input type="text" id="specialization-input" name="specialization">
+      <label for="password-input">Пароль<span>*</span></label>
+      <input type="password" id="password-input" name="password" required></input>
+    </div>
+    <div class="input-container">
+      <label for="repeat-password-input">Повторите пароль<span>*</span></label>
+      <input type="password" id="repeat-password-input" name="repeat_password" required></input>
     </div>
   </div>
-  <button type="submit" class="add-btn">Добавить</button>
+  <button type="submit" id="signup-btn">Зарегистрироваться</button>
+  <div class="login">
+    <p><span>Уже есть аккаунт?</span> <a href="/login">Войти</a></p>
+  </div>
 </form>
 {% endblock %}
 {% block script %}
 <script src="https://unpkg.com/imask"></script>
-<script type="module" src="/js/trainer_form.js"></script>
+<script type="module" src="/js/signup_form.js"></script>
 {% endblock %}

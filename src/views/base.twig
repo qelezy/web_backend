@@ -4,12 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/main.css">
+  {% block style %}{% endblock %}
 </head>
 <body>
+  {% if is_homepage %}
+    <div class="overlay">
+    <header>
+      <button id="profile-btn">Личный кабинет</button>
+    </header>
+  {% endif %}
   <main>
     {% block content %}{% endblock %}
   </main>
+  {% if is_homepage %}
+    </div>
+  {% endif %}
   {% block script %}{% endblock %}
 </body>
 </html>

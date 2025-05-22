@@ -1,0 +1,58 @@
+{% extends "base.twig" %}
+{% block title %}Запись на тренировку{% endblock %}
+{% block style %}<link rel="stylesheet" href="/css/booking.css">{% endblock %}
+{% block content %}
+<h2>Записаться на тренировку</h2>
+<div class="booking-tabs">
+  <button class="tab-btn active" data-tab="existing">Выбрать из доступных</button>
+  <button class="tab-btn" data-tab="individual">Индивидуальная тренировка</button>
+</div>
+<div id="existing" class="tab-content">
+  <h3>Свободные тренировки</h3>
+  {% if schedules %}
+    <ul class="available-schedules">
+      {% for schedule in schedules %}
+        <li>
+          <div class="schedule-datetime">
+          {{ schedule.datetime|date("l, d.m.Y, H:i")|replace({
+            'Monday': 'Понедельник',
+            'Tuesday': 'Вторник',
+            'Wednesday': 'Среда',
+            'Thursday': 'Четверг',
+            'Friday': 'Пятница',
+            'Saturday': 'Суббота',
+            'Sunday': 'Воскресенье'
+          }) }}
+          </div> 
+          <div class="trainer-info">
+            <img src="{{ schedule.trainer_photo }}" alt="{{ schedule.trainer_name }}" class="trainer-img">
+            <span class="trainer-name">{{ schedule.trainer_name }}</span>
+          </div>
+          <form method="post" action="/booking/existing/{{ schedule.id }}">
+            <button type="submit">Записаться</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Нет доступных тренировок</p>
+  {% endif %}
+</div>
+<div id="individual" class="tab-content" style="display:none;">
+  <h3>Индивидуальная тренировка</h3>
+  <form method="post" action="/booking/individual">
+    <label for="datetime">Дата и время:</label>
+    <input type="datetime-local" name="datetime" required>
+    <label for="trainer">Выберите тренера:</label>
+    <select name="trainer_id" required>
+      {% for trainer in trainers %}
+        <option value="{{ trainer.trainer_id }}">{{ trainer.trainer_last_name }} {{ trainer.trainer_first_name }} — {{ trainer.trainer_specialization }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Записаться</button>
+  </form>
+</div>
+{% endblock %}
+{% block script %}
+<script src="/js/booking.js"></script>
+{% endblock %}

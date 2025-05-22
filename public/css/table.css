@@ -1,0 +1,78 @@
+:root {
+    --bg-color: #101013;
+    --form-bg-color: #1e2026;
+    --input-color: #393c45;
+    --sub-color: #ee692c;
+    --btn-bg-hover-color: #c75b29;
+    --form-text-color: #dedede;
+    --text-color: #ffffff;
+}
+
+body {
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+table {
+    margin-top: 5rem;
+    border-radius: 1rem;
+    background-color: var(--form-bg-color);
+    box-shadow: 0 2px 3px var(--shadow-color);
+    width: fit-content;
+    border-collapse: collapse;
+}
+
+table thead th {
+    padding: 1rem;
+    background-color: var(--sub-color);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    text-align: left;
+    color: var(--text-color);
+    cursor: default;
+}
+
+table thead th:first-child {
+    border-radius: 1rem 0 0 0;
+    border-left: none;
+}
+
+table thead th:last-child {
+    border-radius: 0 1rem 0 0;
+    border-right: none;
+}
+
+table tbody td {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    color: var(--text-color);
+    cursor: default;
+}
+
+table tbody td:first-child {
+    border-left: none;
+}
+
+table tbody td:last-child {
+    border-right: none;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:last-child td:first-child {
+    border-radius: 0 0 0 1rem;
+}
+
+table tr:last-child td:last-child {
+    border-radius: 0 0 1rem 0;
+}
+
+table tbody tr:hover {
+    background-color: var(--bg-color);
+}

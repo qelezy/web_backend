@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: url("../assets/bg.jpg") no-repeat center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+header button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    gap: 1rem;
+}
+
+main p {
+    font-size: 3rem;
+    font-weight: bold;
+    width: 380px;
+    text-align: center;
+    color: white;
+}
+
+main button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    background-color: #ee692c;
+    color: white;
+    border-radius: 0.75rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #c75b29;
+    }
+}

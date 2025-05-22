@@ -1,5 +1,6 @@
 {% extends "base.twig" %}
 {% block title %}Тренеры{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/table.css">{% endblock %}
 {% block content %}
 <table>
   <thead>
@@ -17,7 +18,13 @@
     {% for trainer in trainers %}
       <tr>
         {% for key, value in trainer %}
-          <td {% if key == "trainer_id" %}style="text-align: right;"{% endif %}>{{ value }}</td>
+          <td {% if key == "trainer_id" %}style="text-align: right;"{% endif %}>
+          {% if key == "trainer_photo" %}
+            <img src="{{ value }}" style="max-width: 50px; height: auto; border-radius: 50%;">
+          {% else %}
+            {{ value }}
+          {% endif %}
+          </td>
         {% endfor %}
       </tr>
     {% else %}

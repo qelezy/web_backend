@@ -20,9 +20,11 @@ class TrainerController {
     public function table(): void {
         $columnsMap = [
             "trainer_id" => "ID",
-            "trainer_full_name" => "ФИО",
+            "trainer_photo" => "Фото",
+            "trainer_last_name" => "Фамилия",
+            "trainer_first_name" => "Имя",
+            "trainer_surname" => "Отчество",
             "trainer_phone" => "Номер телефона",
-            "trainer_birth_date" => "Дата рождения",
             "trainer_specialization" => "Специализация"
         ];
         $trainers = $this->trainerModel->getAll();
@@ -54,35 +56,6 @@ class TrainerController {
             } else {
                 echo json_encode(["message" => "Ошибка при выполнении запроса"]);
             }
-        }
-    }
-
-    public function upload(): void {
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
-            $file = $_FILES["file"];
-            if ($file["error"] !== UPLOAD_ERR_OK) {
-                exit(json_encode(["message" => "Ошибка при загрузке файла"]));
-            }
-            $handle = fopen($file['tmp_name'], "r");
-            if (!$handle) {
-                exit(json_encode(["message" => "Не удалось открыть файл"]));
-            }
-            while (($data = fgetcsv($handle, null, ";", "\"", "\\")) !== false) {
-                if (count($data) < 3) {
-                    continue;
-                }
-                $fullName = strip_tags($data[0]);
-                $phone = strip_tags($data[1]);
-                $specialization = strip_tags($data[2]);
-                $birthDate = strip_tags($data[3]);
-                if (empty($fullName) || empty($phone) || empty($specialization)) {
-                    continue;
-                }
-                $birthDate = empty($birthDate) ? null : $birthDate;
-                $this->trainerModel->add($fullName, $phone, $specialization, $birthDate);
-            }
-            fclose($handle);
-            echo json_encode(["message" => "Импорт завершен"]);
         }
     }
 }
