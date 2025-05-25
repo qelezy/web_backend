@@ -1,24 +1,38 @@
 {% extends "base.twig" %}
 {% block title %}Управление{% endblock %}
-{% block style %}<link rel="stylesheet" href="css/dashboard.css">{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/dashboard.css">{% endblock %}
 {% block content %}
-<div class="control-container">
-  <div class="control-section">
-    <h3>Формы</h3>
-    <div class="button-group">
-      <a href="/admins/add"><button>Добавить администратора</button></a>
-      <a href="/trainers/add"><button>Добавить тренера</button></a>
-      <a href="/schedules/add"><button>Добавить тренировку</button></a>
+<header>
+  <h2>Добро пожаловать, {{ user.first_name }}</h2>
+  <button id="logout-btn">Выйти</button>
+</header>
+<div class="profile">
+  <h3>Профиль</h3>
+  <p>ФИО: {{ user.last_name }} {{ user.first_name }} {{ user.surname }}</p>
+  <p>Телефон: {{ user.phone }}</p>
+</div>
+<div class="control">
+  <h3>Управление</h3>
+  <div class="control-container">
+    <div class="control-section">
+      <h4>Формы</h4>
+      <div class="button-group">
+        <a href="/admins/add"><button>Добавить администратора</button></a>
+        <a href="/trainers/add"><button>Добавить тренера</button></a>
+        <a href="/schedules/add"><button>Добавить тренировку</button></a>
+      </div>
     </div>
-  </div>
-  <div class="control-section">
-    <h3>Таблицы</h3>
-    <div class="button-group">
-      <a href="/admins"><button>Администраторы</button></a>
-      <a href="/clients"><button>Клиенты</button></a>
-      <a href="/trainers"><button>Тренеры</button></a>
-      <a href="/schedules"><button>Тренировки</button></a>
+    <div class="control-section">
+      <h4>Таблицы</h4>
+      <div class="button-group">
+        <a href="/users"><button>Пользователи</button></a>
+        <a href="/trainers"><button>Тренеры</button></a>
+        <a href="/schedules"><button>Тренировки</button></a>
+      </div>
     </div>
   </div>
 </div>
+{% endblock %}
+{% block script %}
+<script src="../js/dashboard.js"></script>
 {% endblock %}

@@ -52,7 +52,7 @@ class TrainerController {
             }
             $birthDate = empty($birthDate) ? null : $birthDate;
             if ($this->trainerModel->add($fullName, $phone, $specialization, $birthDate)) {
-                echo json_encode(["message" => "Данные успешно обработаны"]);
+                echo json_encode(["message" => "Тренер успешно добавлен"]);
             } else {
                 echo json_encode(["message" => "Ошибка при выполнении запроса"]);
             }

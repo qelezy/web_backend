@@ -6,9 +6,9 @@ use App\Controller\BookingController;
 use App\Controller\AuthController;
 use App\Controller\ProfileController;
 use App\Controller\DashboardController;
-use App\Controller\ClientController;
+use App\Controller\UserController;
 use App\Controller\TrainerController;
-use App\Controller\TrainingSessionController;
+use App\Controller\ScheduleController;
 use App\Core\Router;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -23,9 +23,9 @@ $bookingController = new BookingController($twig);
 $authController = new AuthController($twig);
 $profileController = new ProfileController($twig);
 $dashboardController = new DashboardController($twig);
-$clientController = new ClientController($twig);
+$userController = new UserController($twig);
 $trainerController = new TrainerController($twig);
-$trainingSessionController = new TrainingSessionController($twig);
+$scheduleController = new ScheduleController($twig);
 
 $router->get("/", [$homeController, "index"]);
 
@@ -46,17 +46,17 @@ $router->post("/auth/logout", [$authController, "logout"]);
 
 $router->get("/dashboard", [$dashboardController, "index"]);
 
-$router->get("/clients", [$clientController, "table"]);
-$router->get("/clients/add", [$clientController, "form"]);
-$router->post("/clients/add", [$clientController, "save"]);
+$router->get("/users", [$userController, "table"]);
+$router->get("/admins/add", [$userController, "adminForm"]);
+$router->post("/admins/add", [$userController, "saveAdmin"]);
 
 $router->get("/trainers", [$trainerController, "table"]);
 $router->get("/trainers/add", [$trainerController, "form"]);
 $router->post("/trainers/add", [$trainerController, "save"]);
 
-$router->get("/schedules", [$trainingSessionController, "table"]);
-$router->get("/schedules/add", [$trainingSessionController, "form"]);
-$router->post("/schedules/add", [$trainingSessionController, "save"]);
+$router->get("/schedules", [$scheduleController, "table"]);
+$router->get("/schedules/add", [$scheduleController, "form"]);
+$router->post("/schedules/add", [$scheduleController, "save"]);
 
 $router->resolve();
 

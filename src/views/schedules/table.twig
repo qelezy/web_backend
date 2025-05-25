@@ -1,12 +1,13 @@
 {% extends "base.twig" %}
 {% block title %}Тренировки{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/table.css">{% endblock %}
 {% block content %}
 <table>
   <thead>
     <tr>
-      {% if trainingSessions is not empty %}
-        {% for key in trainingSessions|first|keys %}
-          <th {% if key in ["training_session_id", "training_session_duration"] %}style="text-align: right;"{% endif %}> 
+      {% if schedules is not empty %}
+        {% for key in schedules|first|keys %}
+          <th {% if key in ["schedule_id", "trainer_id"] %}style="text-align: right;"{% endif %}> 
             {{ columnsMap[key] ?? key|capitalize }}
           </th>
         {% endfor %}
@@ -14,10 +15,10 @@
     </tr>
   </thead>
   <tbody>
-    {% for trainingSession in trainingSessions %}
+    {% for schedule in schedules %}
       <tr>
-        {% for key, value in trainingSession %}
-          <td {% if key in ["training_session_id", "training_session_duration"] %}style="text-align: right;"{% endif %}>{{ value }}</td>
+        {% for key, value in schedule %}
+          <td {% if key in ["schedule_id", "trainer_id"] %}style="text-align: right;"{% endif %}>{{ value }}</td>
         {% endfor %}
       </tr>
     {% else %}

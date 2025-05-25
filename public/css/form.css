@@ -77,6 +77,16 @@ input {
     }
 }
 
+select {
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--input-color);
+    color: var(--form-text-color);
+    border: none;
+    border-radius: 6px;
+}
+
 button {
     margin-top: 20px;
     width: 100%;

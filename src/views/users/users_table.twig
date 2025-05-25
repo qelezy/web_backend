@@ -1,12 +1,13 @@
 {% extends "base.twig" %}
 {% block title %}Администраторы{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/table.css">{% endblock %}
 {% block content %}
 <table>
   <thead>
     <tr>
-      {% if clients is not empty %}
-        {% for key in clients|first|keys %}
-          <th {% if key == "client_id" %}style="text-align: right;"{% endif %}>
+      {% if users is not empty %}
+        {% for key in users|first|keys %}
+          <th {% if key == "user_id" %}style="text-align: right;"{% endif %}>
             {{ columnsMap[key] ?? key|capitalize }}
           </th>
         {% endfor %}
@@ -14,10 +15,10 @@
     </tr>
   </thead>
   <tbody>
-    {% for client in clients %}
+    {% for user in users %}
       <tr>
-        {% for key, value in client %}
-          <td {% if key == "client_id" %}style="text-align: right;"{% endif %}>{{ value }}</td>
+        {% for key, value in user %}
+          <td {% if key == "user_id" %}style="text-align: right;"{% endif %}>{{ value }}</td>
         {% endfor %}
       </tr>
     {% else %}

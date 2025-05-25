@@ -1,9 +1,10 @@
 :root {
     --bg-color: #101013;
     --form-bg-color: #1e2026;
+    --border-color: #282a31;
+    --header-border-color: #c75b29;
     --input-color: #393c45;
     --sub-color: #ee692c;
-    --btn-bg-hover-color: #c75b29;
     --form-text-color: #dedede;
     --text-color: #ffffff;
 }
@@ -20,7 +21,6 @@ table {
     margin-top: 5rem;
     border-radius: 1rem;
     background-color: var(--form-bg-color);
-    box-shadow: 0 2px 3px var(--shadow-color);
     width: fit-content;
     border-collapse: collapse;
 }
@@ -28,7 +28,7 @@ table {
 table thead th {
     padding: 1rem;
     background-color: var(--sub-color);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--header-border-color);
     border-top: none;
     text-align: left;
     color: var(--text-color);

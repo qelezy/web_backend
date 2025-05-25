@@ -21,11 +21,11 @@
     </div>
     <div class="input-container">
       <label for="phone-input">Номер телефона<span>*</span></label>
-      <input type="text" placeholder="+7(XXX)XXX-XX-XX" id="phone-input" name="phone">
+      <input type="text" placeholder="+7(XXX)XXX-XX-XX" id="phone-input" name="phone" required>
     </div>
     <div class="input-container">
-      <label for="specialization-input">Специализация<span>*</span></label>
-      <input type="text" id="specialization-input" name="specialization">
+      <label for="password-input">Пароль<span>*</span></label>
+      <input type="password" id="password-input" name="password" required>
     </div>
   </div>
   <button type="submit" class="add-btn">Добавить</button>
@@ -33,5 +33,5 @@
 {% endblock %}
 {% block script %}
 <script src="https://unpkg.com/imask"></script>
-<script type="module" src="/js/trainer_form.js"></script>
+<script type="module" src="../js/admin_form.js"></script>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.twig" %}
 {% block title %}Запись на тренировку{% endblock %}
-{% block style %}<link rel="stylesheet" href="/css/booking.css">{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/booking.css">{% endblock %}
 {% block content %}
 <h2>Записаться на тренировку</h2>
 <div class="booking-tabs">
@@ -43,7 +43,7 @@
   <form method="post" action="/booking/individual">
     <label for="datetime">Дата и время:</label>
     <input type="datetime-local" name="datetime" required>
-    <label for="trainer">Выберите тренера:</label>
+    <label for="trainer_id">Выберите тренера:</label>
     <select name="trainer_id" required>
       {% for trainer in trainers %}
         <option value="{{ trainer.trainer_id }}">{{ trainer.trainer_last_name }} {{ trainer.trainer_first_name }} — {{ trainer.trainer_specialization }}</option>
@@ -54,5 +54,5 @@
 </div>
 {% endblock %}
 {% block script %}
-<script src="/js/booking.js"></script>
+<script src="../js/booking.js"></script>
 {% endblock %}

@@ -12,7 +12,7 @@ class User {
     }
 
     public function getAll(): array {
-        $stmt = $this->pdo->query("SELECT * FROM users");
+        $stmt = $this->pdo->query("SELECT user_id, user_last_name, user_first_name, user_surname, user_phone, user_role FROM users");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
