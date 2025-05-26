@@ -42,14 +42,9 @@ class AuthController {
         if ($user && password_verify($password, $user["user_password"])) {
             $_SESSION["user_id"] = $user["user_id"];
             $_SESSION["role"] = $user["user_role"];
-            if ($user["user_role"] === "admin") {
-                $redirect = "/dashboard";
-            } else {
-                $redirect = "/profile";
-            }
             echo json_encode([
                 "success" => true,
-                "redirect" => $redirect
+                "redirect" => "/profile"
             ]);
         } else {
             echo json_encode([

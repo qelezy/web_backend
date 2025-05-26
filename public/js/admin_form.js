@@ -36,7 +36,7 @@ form.addEventListener("submit", (e) => {
         return;
     }
     const formData = new FormData(form);
-    fetch("/admin/add", {
+    fetch("/admins/add", {
         method: "POST",
         body: formData
     })

@@ -112,9 +112,7 @@ class BookingController {
 
         $type = $this->scheduleModel->getType($scheduleId);
 
-        if ($type["schedule_type"] == "group") {
-            $this->bookingModel->delete($bookingId);
-        }
+        $this->bookingModel->delete($bookingId);
         if ($type["schedule_type"] == "individual") {
             $this->scheduleModel->delete($scheduleId);
         }

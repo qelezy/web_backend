@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: DejaVu Sans, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h2>{{ name }}</h2>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        {% for key in data|first|keys %}
+          <th {% if "_id" in key %}style="text-align: right;"{% endif %}>
+            {{ columnsMap[key] ?? key|capitalize }}
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+      <tr>
+        {% for key, value in row %}
+          <td {% if "_id" in key %}style="text-align: right;"{% endif %}>{{ value }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

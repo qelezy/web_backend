@@ -1,5 +1,6 @@
 :root {
     --bg-color: #101013;
+    --sub-bg-color: #1e2026;
     --form-bg-color: #1e2026;
     --border-color: #282a31;
     --header-border-color: #c75b29;
@@ -11,18 +12,45 @@
 
 body {
     background: var(--bg-color);
+}
+
+header {
+    padding: 20px 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    background-color: var(--sub-bg-color);
+    color: var(--text-color);
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+header button {
+    margin: 0;
+    padding: 12px 24px;
+    border: 2px solid var(--sub-color);
+    border-radius: 8px;
+    background-color: var(--sub-bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--sub-color);
+    }
 }
 
 table {
-    margin-top: 5rem;
+    margin: 20px;
     border-radius: 1rem;
     background-color: var(--form-bg-color);
-    width: fit-content;
+    width: calc(100% - 40px);
     border-collapse: collapse;
+    box-sizing: border-box;
 }
 
 table thead th {

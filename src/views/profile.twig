@@ -11,6 +11,7 @@
   <p>ФИО: {{ user.last_name }} {{ user.first_name }} {{ user.surname }}</p>
   <p>Телефон: {{ user.phone }}</p>
 </div>
+{% if user.role == "client" %}
 <div class="bookings">
   <h3>Мои тренировки</h3>
   {% if bookings is not empty %}
@@ -44,6 +45,16 @@
   {% endif %}
 </div>
 <a href="/booking"><button>Записаться на тренировку</button></a>
+{% elseif user.role == "admin" %}
+<div class="control">
+  <h3>Управление</h3>
+  <div class="button-group">
+    <a href="/users"><button>Пользователи</button></a>
+    <a href="/trainers"><button>Тренеры</button></a>
+    <a href="/schedules"><button>Тренировки</button></a>
+  </div>
+</div>
+{% endif %}
 {% endblock %}
 {% block script %}
 <script src="../js/profile.js"></script>

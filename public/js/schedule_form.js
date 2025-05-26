@@ -1,36 +1,23 @@
-import { setupInputFilter } from "./input_filter.js";
-
-const nameInput = document.getElementById("name-input"),
+const trainerIdInput = document.getElementById("trainer-input"),
       datetimeInput = document.getElementById("datetime-input"),
-      durationInput = document.getElementById("duration-input"),
+      typeInput = document.getElementById("type-input"),
       form = document.getElementById("form");
-
-const nameFormat = /^[a-zA-Zа-яА-ЯёЁ\s-]+$/;
-setupInputFilter(nameInput, nameFormat);
-
-const durationFormat = /^-?\d*(\.\d*)?$/;
-setupInputFilter(durationInput, durationFormat);
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const name = nameInput.value,
+    const trainerId = trainerIdInput.value,
           datetime = datetimeInput.value,
-          duration = durationInput.value;
-    if (!name || !datetime || !duration) {
+          type = typeInput.value;
+    if (!trainerId || !datetime || !type) {
         alert("Заполните обязательные поля ввода");
         return;
     }
-    const durationNum = parseFloat(duration);
-    if (!nameFormat.test(name) || isNaN(new Date(datetime).getDate()) || isNaN(durationNum)) {
+    if (isNaN(new Date(datetime).getDate())) {
         alert("Введены некорректные данные");
         return;
     }
-    if (durationNum <= 0) {
-        alert("Длительность должна быть больше 0");
-        return;
-    }
     const formData = new FormData(form);
-    fetch("/training_sessions/add", {
+    fetch("/schedules/add", {
         method: "POST",
         body: formData
     })

@@ -28,7 +28,7 @@ class User {
     }
 
     public function findById(string $id) {
-        $stmt = $this->pdo->prepare("SELECT user_last_name AS last_name, user_first_name AS first_name, user_surname AS surname, user_phone AS phone FROM users WHERE user_id = ?");
+        $stmt = $this->pdo->prepare("SELECT user_last_name AS last_name, user_first_name AS first_name, user_surname AS surname, user_phone AS phone, user_role AS role FROM users WHERE user_id = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
