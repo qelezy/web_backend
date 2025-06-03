@@ -1,0 +1,61 @@
+{% extends "base.html.twig" %}
+{% block title %}Личный кабинет{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/profile.css">{% endblock %}
+{% block content %}
+<header>
+  <h2>Добро пожаловать, {{ user.firstName }}</h2>
+  <button id="logout-btn">Выйти</button>
+</header>
+<div class="profile">
+  <h3>Профиль</h3>
+  <p>ФИО: {{ user.lastName }} {{ user.firstName }} {{ user.surname }}</p>
+  <p>Телефон: {{ user.phone }}</p>
+</div>
+{% if user.role == "client" %}
+<div class="bookings">
+  <h3>Мои тренировки</h3>
+  {% if bookings is not empty %}
+    <ul>
+      {% for booking in bookings %}
+        <li>
+          <div class="schedule-datetime">
+          {{ booking.datetime|date('l, d.m.Y, H:i')|replace({
+            'Monday': 'Понедельник',
+            'Tuesday': 'Вторник',
+            'Wednesday': 'Среда',
+            'Thursday': 'Четверг',
+            'Friday': 'Пятница',
+            'Saturday': 'Суббота',
+            'Sunday': 'Воскресенье'
+          }) }}
+          </div>
+          <div class="trainer-info">
+            <img src="{{ booking.photo }}" alt="{{ booking.trainer_name }}" class="trainer-img">
+            <span>{{ booking.trainer_name }}</span> - 
+            <span>{{ booking.specialization }}</span>
+          </div>
+          <form method="post" action="/booking/cancel/{{ booking.id }}">
+            <button type="submit">Отменить</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Вы ещё не записаны на тренировки</p>
+  {% endif %}
+</div>
+<a href="/booking"><button>Записаться на тренировку</button></a>
+{% elseif user.role == "admin" %}
+<div class="control">
+  <h3>Управление</h3>
+  <div class="button-group">
+    <a href="/users"><button>Пользователи</button></a>
+    <a href="/trainers"><button>Тренеры</button></a>
+    <a href="/schedules"><button>Тренировки</button></a>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
+{% block script %}
+<script src="../js/profile.js"></script>
+{% endblock %}

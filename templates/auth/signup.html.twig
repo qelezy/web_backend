@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+{% block title %}Регистрация{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/form.css">{% endblock %}
+{% block content %}
+<form id="form">
+  <h2>Регистрация</h2>
+  <div class="form-body">
+    <div class="username-content">
+      <div class="input-container">
+        <label for="last-name-input">Фамилия<span>*</span></label>
+        <input type="text" id="last-name-input" name="last_name" required></input>
+      </div>
+      <div class="input-container">
+        <label for="first-name-input">Имя<span>*</span></label>
+        <input type="text" id="first-name-input" name="first_name" required></input>
+      </div>
+      <div class="input-container">
+        <label for="surname-input">Отчество</label>
+        <input type="text" id="surname-input" name="surname"></input>
+      </div>
+    </div>
+    <div class="input-container">
+      <label for="phone-input">Номер телефона<span>*</span></label>
+      <input type="text" id="phone-input" placeholder="+7(XXX)XXX-XX-XX" name="phone" required></input>
+    </div>
+    <div class="input-container">
+      <label for="password-input">Пароль<span>*</span></label>
+      <input type="password" id="password-input" name="password" required></input>
+    </div>
+    <div class="input-container">
+      <label for="repeat-password-input">Повторите пароль<span>*</span></label>
+      <input type="password" id="repeat-password-input" name="repeat_password" required></input>
+    </div>
+  </div>
+  <button type="submit" id="signup-btn">Зарегистрироваться</button>
+  <div class="login">
+    <p><span>Уже есть аккаунт?</span> <a href="/login">Войти</a></p>
+  </div>
+</form>
+{% endblock %}
+{% block script %}
+<script src="https://unpkg.com/imask"></script>
+<script type="module" src="../js/signup_form.js"></script>
+{% endblock %}

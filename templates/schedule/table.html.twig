@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+{% block title %}Тренировки{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/table.css">{% endblock %}
+{% block content %}
+<header>
+  <h2>Тренировки</h2>
+  <div class="header-buttons">
+    <button id="report-btn">Сохранить в PDF</button>
+    <button id="add-btn">Добавить тренировку</button>
+  </div>
+</header>
+<table>
+  <thead>
+    <tr>
+      {% if schedules is not empty %}
+        {% for key in schedules|first|keys %}
+          <th {% if key in ["id", "trainer_id"] %}style="text-align: right;"{% endif %}> 
+            {{ columnsMap[key] ?? key|capitalize }}
+          </th>
+        {% endfor %}
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for schedule in schedules %}
+      <tr>
+        {% for key, value in schedule %}
+          <td {% if key in ["id", "trainer_id"] %}style="text-align: right;"{% endif %}>
+            {% if key == "datetime" %}
+              {{ value|date('Y-m-d H:i') }}
+            {% else %}
+              {{ value }}
+            {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+    {% else %}
+      <tr>
+        <td colspan="100%">Нет данных</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+{% block script %}
+<script src="../js/table.js"></script>
+{% endblock %}

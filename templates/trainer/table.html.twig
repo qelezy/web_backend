@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+{% block title %}Тренеры{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/table.css">{% endblock %}
+{% block content %}
+<header>
+  <h2>Тренеры</h2>
+  <div class="header-buttons">
+    <button id="report-btn" type="submit">Сохранить в PDF</button>
+    <button id="add-btn">Добавить тренера</button>
+  </div>
+</header>
+<table>
+  <thead>
+    <tr>
+      {% if trainers is not empty %}
+        {% for key in trainers|first|keys %}
+          <th {% if key == "id" %}style="text-align: right;"{% endif %}>
+            {{ columnsMap[key] ?? key|capitalize }}
+          </th>
+        {% endfor %}
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for trainer in trainers %}
+      <tr>
+        {% for key, value in trainer %}
+          <td {% if key == "id" %}style="text-align: right;"{% endif %}>
+          {% if key == "photo" %}
+            <img src="{{ value }}" style="max-width: 50px; height: auto; border-radius: 50%;">
+          {% else %}
+            {{ value }}
+          {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+    {% else %}
+      <tr>
+        <td colspan="100%">Нет данных</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+{% block script %}
+<script src="../js/table.js"></script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+{% block title %}Добавление тренировки{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/form.css">{% endblock %}
+{% block content %}
+<form id="form">
+  <h2>Добавление тренировки</h2>
+  <div class="form-body">
+    <div class="input-container">
+      <label for="trainer-input">Тренер<span>*</span></label>
+      <select id="trainer-input" name="trainer_id" required>
+        {% for trainer in trainers %}
+          <option value="{{ trainer.id }}">{{ trainer.lastName }} {{ trainer.firstName }} — {{ trainer.specialization }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="input-container">
+      <label for="datetime-input">Дата и время<span>*</span></label>
+      <input type="datetime-local" id="datetime-input" name="datetime">
+    </div>
+    <div class="input-container">
+      <label for="type-input">Тип<span>*</span></label>
+      <select id="type-input" name="type" required>
+        <option value="group">Групповая</option>
+        <option value="individual">Индивидуальная</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="add-btn">Добавить</button>
+</form>
+{% endblock %}
+{% block script %}
+<script type="module" src="../js/schedule_form.js"></script>
+{% endblock %}

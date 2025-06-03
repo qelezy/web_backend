@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{% block title %}Вход{% endblock %}
+{% block style %}<link rel="stylesheet" href="../css/form.css">{% endblock %}
+{% block content %}
+<form id="form">
+  <h2>Вход</h2>
+  <div class="form-body">
+    <div class="input-container">
+      <label for="phone-input">Номер телефона</label>
+      <input type="text" id="phone-input" placeholder="+7(XXX)XXX-XX-XX" name="phone" required></input>
+    </div>
+    <div class="input-container">
+      <label for="password-input">Пароль</label>
+      <input type="password" id="password-input" name="password" required></input>
+    </div>
+  </div>
+  <button type="submit" id="signin-btn">Войти</button>
+  <div class="login">
+    <p><span>Нет аккаунта?</span> <a href="/signup">Зарегистрироваться</a></p>
+  </div>
+</form>
+{% endblock %}
+{% block script %}
+<script src="https://unpkg.com/imask"></script>
+<script src="../js/login_form.js"></script>
+{% endblock %}

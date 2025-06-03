@@ -1,0 +1,104 @@
+:root {
+    --bg-color: #101013;
+    --form-bg-color: #1e2026;
+    --input-color: #393c45;
+    --sub-color: #ee692c;
+    --btn-bg-hover-color: #c75b29;
+    --form-text-color: #dedede;
+    --text-color: #ffffff;
+}
+
+body {
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.username-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 5%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--form-bg-color);
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+h2 {
+    color: var(--text-color);
+}
+
+p {
+    text-align: center;
+}
+
+p span {
+    color: var(--form-text-color);
+}
+
+p a {
+    color: var(--sub-color);
+}
+
+label {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: var(--form-text-color);
+}
+
+label span {
+    color: var(--sub-color);
+    margin-left: 2px;
+    user-select: none;
+}
+
+input {
+    font-size: 1rem;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: var(--input-color);
+    color: var(--text-color);
+
+    &:focus {
+        outline: 2px solid var(--sub-color);
+    }
+}
+
+select {
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--input-color);
+    color: var(--form-text-color);
+    border: none;
+    border-radius: 6px;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--sub-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:hover {
+        background-color: var(--btn-bg-hover-color);
+    }
+}
